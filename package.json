@@ -1,0 +1,48 @@
+{
+  "name": "ihtal-almamlaka",
+  "private": true,
+  "version": "1.1.0",
+  "description": "احتلّ المملكة — لعبة مسابقات سعودية للمتصفح مع شاشة جمهور ولوحة تحكم للمقدم",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "start": "npm run build && node relay/server.mjs",
+    "serve": "node relay/server.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "icons": "node scripts/gen-icons.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/cairo": "^5.3.0",
+    "@fontsource-variable/reem-kufi": "^5.3.0",
+    "@fontsource/lalezar": "^5.3.0",
+    "canvas-confetti": "^1.9.4",
+    "idb": "^8.0.4",
+    "motion": "^14.6.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.4",
+    "ws": "^8.22.0",
+    "zustand": "^5.0.16"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^26.6.5",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/ws": "^8.18.2",
+    "@vitejs/plugin-react": "^6.1.2",
+    "fake-indexeddb": "^6.2.6",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^5.0.5"
+  }
+}
