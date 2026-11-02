@@ -190,6 +190,73 @@ export const FLAGS: Record<string, FlagDef> = {
       return out;
     },
   },
+  es: { name: 'إسبانيا', draw: () => rect(0, 0, W, H, '#AA151B') + rect(0, 50, W, 100, '#F1BF00') },
+  ch: { name: 'سويسرا', draw: () => rect(0, 0, W, H, '#DA291C') + rect(132, 40, 36, 120, '#ffffff') + rect(90, 82, 120, 36, '#ffffff') },
+  ro: { name: 'رومانيا', draw: () => v3('#002B7F', '#FCD116', '#CE1126') },
+  pe: { name: 'بيرو', draw: () => v3('#D91023', '#ffffff', '#D91023') },
+  co: { name: 'كولومبيا', draw: () => rect(0, 0, W, 100, '#FCD116') + rect(0, 100, W, 50, '#003893') + rect(0, 150, W, 50, '#CE1126') },
+  th: {
+    name: 'تايلاند',
+    draw: () => {
+      const u = H / 6;
+      return rect(0, 0, W, H, '#A51931') + rect(0, u, W, u * 4, '#F4F5F8') + rect(0, u * 2, W, u * 2, '#2D2A4A');
+    },
+  },
+  cz: { name: 'التشيك', draw: () => h2('#ffffff', '#D7141A') + `<polygon points="0,0 150,100 0,200" fill="#11457E"/>` },
+  cl: { name: 'تشيلي', draw: () => h2('#ffffff', '#D52B1E') + rect(0, 0, 100, 100, '#0039A6') + star(50, 50, 24, '#ffffff') },
+  is: {
+    name: 'آيسلندا',
+    draw: () =>
+      rect(0, 0, W, H, '#02529C') +
+      rect(84, 0, 48, H, '#ffffff') +
+      rect(0, 77.8, W, 44.4, '#ffffff') +
+      rect(96, 0, 24, H, '#DC1E35') +
+      rect(0, 88.9, W, 22.2, '#DC1E35'),
+  },
+  in: {
+    name: 'الهند',
+    draw: () => {
+      let spokes = '';
+      for (let i = 0; i < 24; i++) {
+        const a = (i * 15 * Math.PI) / 180;
+        spokes += `<line x1="150" y1="100" x2="${(150 + 24 * Math.cos(a)).toFixed(2)}" y2="${(100 + 24 * Math.sin(a)).toFixed(2)}" stroke="#000080" stroke-width="1.5"/>`;
+      }
+      return (
+        h3('#FF9933', '#ffffff', '#138808') +
+        `<circle cx="150" cy="100" r="25" fill="none" stroke="#000080" stroke-width="3"/>` +
+        spokes +
+        `<circle cx="150" cy="100" r="4" fill="#000080"/>`
+      );
+    },
+  },
+  mr: {
+    name: 'موريتانيا',
+    draw: (u) =>
+      rect(0, 0, W, H, '#00A95C') +
+      rect(0, 0, W, 28, '#D01C1F') +
+      rect(0, 172, W, 28, '#D01C1F') +
+      crescent(`${u}c`, 150, 98, 50, 150, 76, 46, '#FFD700') +
+      star(150, 80, 17, '#FFD700'),
+  },
+  us: {
+    name: 'الولايات المتحدة',
+    draw: () => {
+      const s = H / 13;
+      let out = '';
+      for (let i = 0; i < 13; i++) out += rect(0, i * s, W, s + 0.5, i % 2 === 0 ? '#B22234' : '#ffffff');
+      const cw = 120;
+      const ch = s * 7;
+      out += rect(0, 0, cw, ch, '#3C3B6E');
+      for (let r = 0; r < 9; r++) {
+        const n = r % 2 === 0 ? 6 : 5;
+        for (let c = 0; c < n; c++) {
+          const x = ((r % 2 === 0 ? 2 * c + 1 : 2 * c + 2) * cw) / 12;
+          out += star(x, ((r + 1) * ch) / 10, 4.6, '#ffffff');
+        }
+      }
+      return out;
+    },
+  },
 };
 
 export const FLAG_CODES = Object.keys(FLAGS);
